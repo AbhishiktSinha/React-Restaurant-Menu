@@ -2,7 +2,7 @@ import React from 'react';
 
 const ItemCard = ({title, category, price, img, desc})=>{
     return (
-        <div className="item-card">
+        <div className="item-card" data-test-id={`menu-item-${category}`}>
             <div className="image-container"><img src={img} alt="menu-item" /></div>
 
             <div className="details-container">
