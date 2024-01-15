@@ -1,16 +1,23 @@
 import React, { useState } from "react";
 import { itemCategories } from "../data/itemData";
 import CategoryButton from "./CategoryButton";
+import "../styles/Navbar.css"
 
 const Navbar = ({setSearchCategory})=> {
 
     const [selectedButtonIndex, setSelectedButtonIndex] = useState(0);
+    const [markerStyle, setMarkerStyle] = useState({left: '8px', width: '40px'});
+    
 
     function handleButtonClick(e) {
         setSearchCategory(e.target.getAttribute('data-category'));  
 
         const buttonIndex = e.target.id.slice(-1);
         setSelectedButtonIndex(Number(buttonIndex));
+
+        const button = e.target;    
+        
+        setMarkerStyle({left : `${button.offsetLeft}px`, width: `${button.clientWidth}px`})     
     }
     return (
         <nav>
@@ -31,6 +38,7 @@ const Navbar = ({setSearchCategory})=> {
                         />
                     })
                 }
+                <div className="marker" style={markerStyle}></div>
             </div>
         </nav>
     )
