@@ -9,7 +9,7 @@ const Navbar = ({setSearchCategory})=> {
     function handleButtonClick(e) {
         setSearchCategory(e.target.getAttribute('data-category'));  
 
-        buttonIndex = e.target.id.slice(-1);
+        const buttonIndex = e.target.id.slice(-1);
         setSelectedButtonIndex(Number(buttonIndex));
     }
     return (
@@ -24,7 +24,7 @@ const Navbar = ({setSearchCategory})=> {
                     itemCategories.map((category, index)=>{
                         return <CategoryButton 
                             key={`${category}-button`}
-                            id={`category_button_${index}`}
+                            id={`filter-btn-${index}`}
                             category={category}     
                             onClickHandler = {handleButtonClick}
                             selected = {(index===selectedButtonIndex)? true : false}

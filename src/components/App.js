@@ -6,7 +6,7 @@ const App = ()=> {
     const [searchCategory, setSearchCategory] = useState('all');
 
     return (
-        <div className="main-container">
+        <div className="main-container" id="main">
 
             <Navbar setSearchCategory={setSearchCategory}></Navbar>
             <DisplaySection searchCategory={searchCategory}></DisplaySection>
